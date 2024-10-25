@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface Product {
@@ -10,6 +11,7 @@ interface Product {
   title: string;
   url: string;
   image?: string;
+  summary?: string;
 }
 
 interface ProductResultsProps {
@@ -59,17 +61,19 @@ const ProductResults: React.FC<ProductResultsProps> = ({ results }) => {
             key={product.id || index}
             className="w-full bg-gray-900 border-4 border-yellow-300 p-4 transform hover:scale-102 transition-transform"
           >
-            <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex flex-col md:flex-row gap-6 h-full">
               {/* Left Column - Image or Placeholder */}
-              <div className="w-full md:w-1/3">
+              <div className="w-full md:w-1/3 h-full">
                 {product.image ? (
                   <img
                     src={product.image}
                     alt={product.title}
                     className="w-full h-auto object-cover"
+                    width={200}
+                    height={200}
                   />
                 ) : (
-                  <div className="w-full h-48 bg-gray-700 flex items-center justify-center">
+                  <div className="w-full h-72 bg-gray-700 flex items-center justify-center">
                     <span className="text-gray-400">No image available</span>
                   </div>
                 )}
@@ -100,18 +104,12 @@ const ProductResults: React.FC<ProductResultsProps> = ({ results }) => {
                 </a>
 
                 {/* Highlights */}
-                {product.highlights && product.highlights.length > 0 && (
+                {product.summary && (
                   <div className="bg-black p-4 border-2 border-green-400">
-                    <h4 className="text-yellow-300 mb-2 font-bold">
-                      Highlights:
-                    </h4>
-                    <div className="space-y-2 line-clamp-6">
-                      {product.highlights.map((highlight, i) => (
-                        <p key={i} className="text-green-400 font-mono text-sm">
-                          {highlight}
-                        </p>
-                      ))}
-                    </div>
+                    <h4 className="text-yellow-300 mb-2 font-bold">Summary:</h4>
+                    <p className="text-green-400 font-mono text-sm">
+                      {product.summary}
+                    </p>
                   </div>
                 )}
               </div>

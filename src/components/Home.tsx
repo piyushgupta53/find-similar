@@ -33,6 +33,8 @@ const HomePage = () => {
         console.log(result);
 
         setSearchResults(result);
+        console.log(result);
+
         setIsLoading(false);
       })
       .catch((error) => {

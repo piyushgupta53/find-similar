@@ -23,6 +23,7 @@ export async function POST(request: Request) {
         numSentences: 3,
         highlightsPerUrl: 1,
       },
+      summary: true,
     });
 
     return NextResponse.json({ success: true, data: result }, { status: 200 });
