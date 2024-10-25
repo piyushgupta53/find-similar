@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 interface Product {
@@ -65,6 +64,7 @@ const ProductResults: React.FC<ProductResultsProps> = ({ results }) => {
               {/* Left Column - Image or Placeholder */}
               <div className="w-full md:w-1/3 h-full">
                 {product.image ? (
+                  // eslint-disable-next-line
                   <img
                     src={product.image}
                     alt={product.title}

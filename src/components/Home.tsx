@@ -4,12 +4,25 @@ import React, { useState } from "react";
 import { Loader, Search } from "lucide-react";
 import ProductResults from "./ProductCard";
 
+interface Result {
+  author: string;
+  highlightScores?: number[];
+  highlights?: string[];
+  id: string;
+  publishedDate: string;
+  score: number;
+  title: string;
+  url: string;
+  image?: string;
+  summary?: string;
+}
+
 const HomePage = () => {
   const [url, setUrl] = useState("");
   const [includePhrase, setIncludePhrase] = useState("");
   const [excludePhrase, setExcludePhrase] = useState("");
   const [searchResults, setSearchResults] = useState<{
-    data: { results: any[] };
+    data: { results: Result[] };
   } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -62,7 +75,7 @@ const HomePage = () => {
             Find Similar
           </h1>
           <div className="bg-black text-green-400 inline-block px-4 py-2 rotate-2">
-            <p className="text-xl">Find your product's twin!</p>
+            <p className="text-xl">Find your product&apos;s twin!</p>
           </div>
         </div>
 
