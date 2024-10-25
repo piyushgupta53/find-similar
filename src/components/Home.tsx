@@ -62,8 +62,7 @@ const HomePage = () => {
       {/* Marquee Header */}
       <div className="bg-black p-3 overflow-hidden">
         <div className="text-center text-wrap">
-          🌟 Welcome to the Find Similar 🌟 The Ultimate Shopping Hack 🌟 Find
-          Similar Products Now 🌟
+          🌟 The Ultimate Shopping Hack 🌟 Find Similar Products 🌟
         </div>
       </div>
 
@@ -72,7 +71,7 @@ const HomePage = () => {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-6xl font-bold mb-4 text-yellow-300 animate-pulse">
-            Find Similar
+            Linkalike
           </h1>
           <div className="bg-black text-green-400 inline-block px-4 py-2 rotate-2">
             <p className="text-xl">Find your product&apos;s twin!</p>

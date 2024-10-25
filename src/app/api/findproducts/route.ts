@@ -5,6 +5,9 @@ export async function POST(request: Request) {
   try {
     const { url, includeText, excludeText } = await request.json();
 
+    // Extract the domain from the URL
+    const domain = new URL(url).origin;
+
     const exa = new Exa("2460b671-5495-4cc4-abf7-2ab09c3a93b2");
 
     // Convert includeText and excludeText to arrays

@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Find Similar",
+  title: "Linkalike",
   description: "Search products similar to what you are looking for.",
 };
 
