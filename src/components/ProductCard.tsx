@@ -1,17 +1,5 @@
+import { Product } from "@/types";
 import React from "react";
-
-interface Product {
-  author: string;
-  highlightScores?: number[];
-  highlights?: string[];
-  id: string;
-  publishedDate: string;
-  score: number;
-  title: string;
-  url: string;
-  image?: string;
-  summary?: string;
-}
 
 interface ProductResultsProps {
   results: Product[] | Product | null | undefined;
@@ -62,25 +50,22 @@ const ProductResults: React.FC<ProductResultsProps> = ({ results }) => {
           >
             <div className="flex flex-col md:flex-row gap-6 h-full">
               {/* Left Column - Image or Placeholder */}
-              <div className="w-full md:w-1/3 h-full">
+              <div className="w-full md:w-1/3 flex items-stretch">
                 {product.image ? (
-                  // eslint-disable-next-line
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-auto object-cover"
-                    width={200}
-                    height={200}
+                    className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-72 bg-gray-700 flex items-center justify-center">
+                  <div className="w-full h-full bg-gray-700 flex items-center justify-center">
                     <span className="text-gray-400">No image available</span>
                   </div>
                 )}
               </div>
 
               {/* Right Column - Content */}
-              <div className="w-full md:w-2/3">
+              <div className="w-full md:w-2/3 flex flex-col justify-between">
                 {/* Score Badge */}
                 <div className="mb-4">
                   <div className="bg-black px-3 py-1 inline-block">

@@ -3,26 +3,14 @@
 import React, { useState } from "react";
 import { Loader, Search } from "lucide-react";
 import ProductResults from "./ProductCard";
-
-interface Result {
-  author: string;
-  highlightScores?: number[];
-  highlights?: string[];
-  id: string;
-  publishedDate: string;
-  score: number;
-  title: string;
-  url: string;
-  image?: string;
-  summary?: string;
-}
+import { Product } from "@/types";
 
 const HomePage = () => {
   const [url, setUrl] = useState("");
   const [includePhrase, setIncludePhrase] = useState("");
   const [excludePhrase, setExcludePhrase] = useState("");
   const [searchResults, setSearchResults] = useState<{
-    data: { results: Result[] };
+    data: { results: Product[] };
   } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -43,11 +31,7 @@ const HomePage = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
-
         setSearchResults(result);
-        console.log(result);
-
         setIsLoading(false);
       })
       .catch((error) => {
